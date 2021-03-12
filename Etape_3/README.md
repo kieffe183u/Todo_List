@@ -1,7 +1,11 @@
-#Etape 3
+# Etape 3
 
-Cette étape à pour but d'initialiser la variable local storage dans le fichier js app. Cela nous permet
-de récupérer les tâches courantes et que lorsque l'on regarde la page, la liste de tâche reste la même depuis la dernière fois que l'on a ouvert l'appli  / le site
+Lors de cette étape, l'interface utilisateur à été modifié et complété. 
+Les éléments ajoutés sont : 
 
-Ajout d'une fonction createItem, qui permet de récupérer les infos de localStorage et de créer les différentes tâches
-(les attributs de la tâche peuvent être changés lors du projet si l'on rajoute une date / un surlignement, etc ...)
+* Un nouvel onglet En cours qui mène à une page HTML current_task.html
+* Le nom Charlie Kieffer dans l'onglet du menu 
+* Modification de la page Nouvelle tâche afin d'avoir les champs requis pour créer une nouvelle tâche
+* un bouton pour effacer les tâches avec un pop up pour demander la confirmation de la suppresion
+
+Pour tout ces ajouts, ils ne sont pas fonctionnelle, ils sont juste rajoutés à la vue.
