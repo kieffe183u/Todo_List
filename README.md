@@ -1,5 +1,5 @@
 # PROJET TODOLIST 
-## Charlie Kieffer SI1
+## Charlie Kieffer SI-2
 
 Le projet Todo_List / Année 2020 - 2021 
 
