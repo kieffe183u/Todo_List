@@ -18,21 +18,21 @@ document.addEventListener('init', function(event) {
   }
 });
 
-  function createItem(state) {
-    Object.keys(localStorage).forEach(function(key){
-      let item = JSON.parse(localStorage.getItem(key));
-      if (item.state===state) {
-        myApp.services.tasks.create(
-            {
-              id: item.id,
-              title: item.title,
-              category: item.category,
-              description: item.description,
-              state: item.state,
-            }
-        );
-      }
-    });
-  }
+function createItem(state) {
+  Object.keys(localStorage).forEach(function(key){
+    let item = JSON.parse(localStorage.getItem(key));
+    if (item.state===state) {
+      myApp.services.tasks.create(
+          {
+            id: item.id,
+            title: item.title,
+            category: item.category,
+            description: item.description,
+            state: item.state,
+          }
+      );
+    }
+  });
+}
 
 
