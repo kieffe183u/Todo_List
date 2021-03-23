@@ -61,33 +61,33 @@ ons-splitter-side[side="left"][animation="overlay"] {
 .animation-swipe-right {
   pointer-events: none;
   -webkit-animation: swipe-right .9s ease-in-out forwards;
-          animation: swipe-right .9s ease-in-out forwards;
+  animation: swipe-right .9s ease-in-out forwards;
 }
 
 .animation-swipe-left {
   pointer-events: none;
   -webkit-animation: swipe-left .9s ease-in-out forwards;
-          animation: swipe-left .9s ease-in-out forwards;
+  animation: swipe-left .9s ease-in-out forwards;
 }
 
 .animation-remove {
   pointer-events: none;
   -webkit-animation: remove .7s ease-in-out forwards;
-          animation: remove .7s ease-in-out forwards;
+  animation: remove .7s ease-in-out forwards;
 }
 
 @-webkit-keyframes swipe-right {
   0% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   10% {
     -webkit-transform: translateX(-3%);
-            transform: translateX(-3%);
+    transform: translateX(-3%);
   }
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
     height: 0;
     opacity: 0.3;
   }
@@ -96,15 +96,15 @@ ons-splitter-side[side="left"][animation="overlay"] {
 @keyframes swipe-right {
   0% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   10% {
     -webkit-transform: translateX(-3%);
-            transform: translateX(-3%);
+    transform: translateX(-3%);
   }
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
     height: 0;
     opacity: 0.3;
   }
@@ -113,15 +113,15 @@ ons-splitter-side[side="left"][animation="overlay"] {
 @-webkit-keyframes swipe-left {
   0% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   10% {
     -webkit-transform: translateX(3%);
-            transform: translateX(3%);
+    transform: translateX(3%);
   }
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
     height: 0;
     opacity: 0.3;
   }
@@ -130,15 +130,15 @@ ons-splitter-side[side="left"][animation="overlay"] {
 @keyframes swipe-left {
   0% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   10% {
     -webkit-transform: translateX(3%);
-            transform: translateX(3%);
+    transform: translateX(3%);
   }
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
     height: 0;
     opacity: 0.3;
   }

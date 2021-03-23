@@ -1,11 +1,25 @@
-# Etape 3
+# Etape 4
 
-Lors de cette étape, l'interface utilisateur à été modifié et complété. 
-Les éléments ajoutés sont : 
+Lors de cette étape, l'interface utilisateur a été quelque peu modifié à nouveau et beaucoup de fonctionnalités basiques ont été ajoutés :
 
-* Un nouvel onglet En cours qui mène à une page HTML current_task.html
-* Le nom Charlie Kieffer dans l'onglet du menu 
-* Modification de la page Nouvelle tâche afin d'avoir les champs requis pour créer une nouvelle tâche
-* un bouton pour effacer les tâches avec un pop up pour demander la confirmation de la suppresion
+* PREREQUIS : Insertion du localStorage
+* Fonctionnalité 1 : Ajouter une nouvelle tâche 
+* Fonctionnalité 2 : Pouvoir changer la tâche de colonne
+* Fonctionnalité 3 : Pouvoir supprimer toutes les tâches
+* Fonctionnalité 4 : Pouvoir supprimer une tâche individuellement 
+* Fonctionnalité 5 : Pouvoir ranger les tâches par catégories
+* Fonctionnalité 6 : Pouvoir supprimer des catégories 
+* Fonctionnalité 7 : Avoir un menu déroulant des catégories déjà existantes
+* Fonctionnalité 8 : Avoir une Deadline sur les tâches (vérifications lors que l'ajout de ces dernières)
 
-Pour tout ces ajouts, ils ne sont pas fonctionnelle, ils sont juste rajoutés à la vue.
+L'ajout d'un nouveau script perso.js a été nécessaire lors de cette étape 
+Beaucoup de fonctionnalités ont été ajoutées lors de cette étape, comme elles sont plus ou moins toutes liées, il était plus simple
+de faire ça ainsi.
+
+Pour ce qui est de l'interface utilisateur il y a également eu quelques rajouts mineurs : 
+* Nouveau titre 
+* Nouvelle icône de navigateur correspondant à ToDoList
+* Modification du new tasks html
+* Modification du menu html 
+
+Il est prévu de gérer la mise à jour et l'affichage en détails des tâches lors de la prochaine étape. 
