@@ -21,6 +21,17 @@ myApp.controllers = {
 
       element.show && element.show(); // Fix ons-fab in Safari.
     });
+
+    Array.prototype.forEach.call(page.querySelectorAll('[component="button/delete"]'), function (element) {
+      element.onclick = function () {
+        ons.notification.confirm(
+            {
+              title: 'Effacer toutes les tâches ?',
+              message: 'Toutes les tâches seront effacées.',
+              buttonLabels: ['Tout Effacer', 'Annuler']
+            });
+      }
+    });
   }
 
 };
