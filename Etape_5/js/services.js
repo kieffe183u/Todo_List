@@ -70,6 +70,19 @@ myApp.services = {
         myApp.services.tasks.remove(taskItem);
       };
 
+      // Add functionality to push 'details_task.html' page with the current element as a parameter.
+      taskItem.querySelector('.center').onclick = function() {
+        document.querySelector('#myNavigator')
+            .pushPage('html/details_task.html',
+                {
+                  animation: 'lift',
+                  data: {
+                    element: taskItem
+                  }
+                }
+            );
+      };
+
 
       // Check if it's necessary to create new categories for this item.
       myApp.services.categories.updateAdd(taskItem.data.category);
@@ -84,6 +97,35 @@ myApp.services = {
           taskItem.data.state+'-list');
       list.insertBefore(taskItem, taskItem.data.urgent ? list.firstChild : null);
       return taskItem;
+    },
+
+    // Modifies the inner data and current view of an existing task.
+    update: function(taskItem, data) {
+      if (data.title !== taskItem.data.title || data.jour !== taskItem.data.jour || data.mois !== taskItem.data.mois
+          || data.annee !== taskItem.data.annee) {
+        // Update title view.
+        taskItem.querySelector('.center').innerHTML = data.title + " : " + data.jour+'/'+data.mois+'/'+data.annee;
+        taskItem.childNodes.item(2).dataset.jour = data.jour;
+        taskItem.childNodes.item(2).dataset.mois = data.mois;
+        taskItem.childNodes.item(2).dataset.annee = data.annee;
+      }
+
+      if (data.category !== taskItem.data.category) {
+        // Modify the item before updating categories.
+        taskItem.setAttribute('category', data.category);
+        // Check if it's necessary to create new categories.
+        myApp.services.categories.updateAdd(data.category);
+        // Check if it's necessary to remove empty categories.
+        myApp.services.categories.updateRemove(taskItem.data.category);
+
+      }
+
+      // Add or remove the highlight.
+      taskItem.classList[data.highlight ? 'add' : 'remove']('highlight');
+
+      // Store the new data within the element.
+      localStorage.setItem(data.id,JSON.stringify(data));
+      taskItem.data = data;
     },
 
     // Deletes a task item and its listeners.

@@ -146,4 +146,84 @@ myApp.controllers = {
             };
         });
     },
+
+    ////////////////////////////////
+    // Details Task Page Controller //
+    ///////////////////////////////
+    detailsTaskPage: function (page) {
+        // Get the element passed as argument to pushPage.
+        var element = page.data.element;
+
+        // Fill the view with the stored data.
+        page.querySelector('#title-input').value = element.data.title;
+        page.querySelector('#category-input').value = element.data.category;
+        page.querySelector('#description-input').value = element.data.description;
+        page.querySelector('#highlight-input').checked = element.data.highlight;
+        page.querySelector('#urgent-input').checked = element.data.urgent;
+        page.querySelector('#jour-input').value = element.data.jour;
+        page.querySelector('#mois-input').value = element.data.mois;
+        page.querySelector('#annee-input').value = element.data.annee;
+
+        // Set button functionality to save an existing task.
+        page.querySelector('[component="button/save-task"]').onclick = function () {
+            if (isNaN(parseInt(page.querySelector("#jour-input").value)) || isNaN(parseInt(page.querySelector("#mois-input").value)) || isNaN(parseInt(page.querySelector("#annee-input").value))) {
+                ons.notification.alert("La date est au mauvais format");
+            } else if (isValidDate(parseInt(page.querySelector("#annee-input").value), parseInt(page.querySelector("#mois-input").value), parseInt(page.querySelector("#jour-input").value),) === false) {
+                ons.notification.alert("La date n'est pas valide");
+            } else {
+                var newTitle = page.querySelector('#title-input').value;
+
+                if (newTitle) {
+                    // If input title is not empty, ask for confirmation before saving.
+                    let categorie;
+                    if (page.querySelector('#category-input').value !== "" && page.querySelector('#category-input').value !== null) {
+                        categorie = page.querySelector('#category-input').value;
+                    } else if (page.querySelector("#choose-sel").getAttribute('modifier') !== "") {
+                        if (page.querySelector("#choose-sel").getAttribute('modifier') === "material")
+                            categorie = "";
+                        else
+                            categorie = page.querySelector("#choose-sel").getAttribute('modifier');
+                    } else {
+                        categorie = "";
+                    }
+                    choixInit();
+                    ons.notification.confirm(
+                        {
+                            title: 'Sauvegarder les changements ?',
+                            message: 'Les données précédentes seront effacées.',
+                            buttonLabels: ['Sauvegarder', 'Annuler']
+                        }
+                    ).then(function (buttonIndex) {
+                        if (buttonIndex === 0) {
+                            // If 'Save' button was pressed, overwrite the task.
+                            myApp.services.tasks.update(element,
+                                {
+                                    id: element.data.id,
+                                    title: newTitle,
+                                    category: categorie,
+                                    description: page.querySelector('#description-input').value,
+                                    urgent: element.data.urgent,
+                                    highlight: page.querySelector('#highlight-input').checked,
+                                    state: element.data.state,
+                                    jour: parseInt(page.querySelector("#jour-input").value),
+                                    mois: parseInt(page.querySelector("#mois-input").value),
+                                    annee: parseInt(page.querySelector("#annee-input").value)
+
+                                }
+                            );
+
+                            // Set selected category to 'All', refresh and pop page.
+                            document.querySelector('#default-category-list ons-list-item ons-radio').checked = true;
+                            document.querySelector('#default-category-list ons-list-item').updateCategoryView();
+                            document.querySelector('#myNavigator').popPage();
+                        }
+                    });
+
+                } else {
+                    // Show alert if the input title is empty.
+                    ons.notification.alert('La tâche a besoin d\'un titre');
+                }
+            }
+        };
+    }
 };
